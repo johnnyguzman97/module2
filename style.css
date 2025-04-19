@@ -1,0 +1,75 @@
+/* 1) Global box-sizing & reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2) Base typography (optional) */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  padding: 20px;
+}
+h1 {
+  font-size: 1.75em;   /* ≈75% larger than base */
+  margin-bottom: 1em;
+}
+
+/* 3) Container for sections */
+.sections-container {
+  /* clearfix for floated children */
+  overflow: hidden;
+}
+
+/* 4) Section base styles (mobile first) */
+.section {
+  position: relative;    /* for absolutely positioned title */
+  width: 100%;           /* mobile: full width */
+  margin-bottom: 20px;   /* vertical spacing */
+  padding: 40px 20px 20px 20px; /* top padding to clear title */
+  border: 1px solid black;
+}
+
+/* 5) Section title */
+.section-title {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  font-size: 1.25em;   /* ≈25% larger than body text */
+  border: 1px solid black;
+}
+
+/* 6) Background colors */
+.chicken { background-color: #ffe5e5; }
+.beef    { background-color: #fff0e5; }
+.sushi   { background-color: #e5ffe5; }
+
+/* 7) Title background colors */
+.chicken .section-title { background-color: #ff9999; }
+.beef    .section-title { background-color: #ffcc99; }
+.sushi   .section-title { background-color: #99ff99; }
+
+/* 8) Tablet view: 768px – 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .section {
+    float: left;
+    width: 50%;          /* two per row */
+  }
+  /* make 3rd section full‐row */
+  .section:nth-child(3) {
+    clear: both;
+    width: 100%;
+  }
+}
+
+/* 9) Desktop view: 992px and above */
+@media (min-width: 992px) {
+  .section {
+    float: left;
+    width: 33.3333%;     /* three equal columns */
+  }
+}
